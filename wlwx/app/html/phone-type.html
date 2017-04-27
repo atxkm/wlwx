@@ -1,0 +1,23 @@
+<app-header></app-header>
+<div class="main">
+  <div class="main_l">
+    <bar-report></bar-report>
+  </div>
+  <div class="main_r">
+    <div class="main_t">
+      <title-one></title-one>
+    </div>
+    <div class="main_c">
+      <div class="main-con">
+        <div class="main-body" ng-class="{'blur': loadData||!hasData}">
+          <div id="chart" style="height: 300px;width: 700px;float: left;"></div>
+          <div class="custromer-detail">
+            <table id="table"></table>
+          </div>
+        </div>
+        <no-data ng-hide="hasData||loadData"></no-data>
+        <loading ng-show="loadData"></loading>
+      </div>
+    </div>
+  </div>
+</div>

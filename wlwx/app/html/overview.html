@@ -1,0 +1,182 @@
+﻿<app-header></app-header>
+<div class="main">
+  <div class="main_l">
+    <bar-report></bar-report>
+  </div>
+  <div class="main_r">
+    <title-one check-type="single"></title-one>
+    <div class="main_c">
+      <div class="main-con">
+        <div ng-class="{'blur': loadData||!hasData}">
+          <div class='main-title'>店铺客流</div>
+          <div class='target-wrap'>
+            <div class="target-block">
+              <div class="target-title">
+                <span>客流量</span>
+              </div>
+              <div class="target-con target-con-first">
+                <div class="target-detail">
+                  <span class='target-number'>{{passNum}}</span>
+                  <span>人</span>
+                </div>
+              </div>
+            </div>
+            <div class="target-block">
+              <div class="target-title">
+                <span>入店量</span>
+              </div>
+              <div class="target-con">
+                <div class="target-detail">
+                  <span class='target-number'>{{getInTimes}}</span>
+                  <span>人次</span>
+                </div>
+                <div class="target-supplement">
+                  <span>入店人数</span>
+                  <span>{{getInNum}}</span>
+                  <span>人</span>
+                </div>
+              </div>
+            </div>
+            <div class="target-block">
+              <div class="target-title">
+                <span>入店率</span>
+              </div>
+              <div class="target-con">
+                <div class="target-detail">
+                  <span class='target-number' id="getInRate">{{getInRate}}</span>
+                  <span>%</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <no-data ng-hide="hasData||loadData"></no-data>
+        <loading ng-show="loadData"></loading>
+      </div>
+      <div class="main-con">
+        <div ng-class="{'blur': loadData||!hasData}">
+          <div class='main-title'>
+            <span>客流质量</span>
+          </div>
+          <div class='target-wrap'>
+            <div class="target-block" id="avgCome">
+              <div class="target-title">
+                <span>平均来访周期</span>
+                <tip content="所探测到的顾客时间段内进入店铺的顾客距离上次来店的平均间隔时长"></tip>
+              </div>
+              <div class="target-con target-con-first" style="height: 42px;">
+                <div class="target-detail">
+                  <span class='target-number' id="comeCycle">{{comeCycle}}</span>
+                  <span>天</span>
+                </div>
+              </div>
+            </div>
+            <div class="target-block">
+              <div class="target-title">
+                <span>新顾客</span>
+              </div>
+              <div class="target-con">
+                <div class="target-detail">
+                  <span class='target-number' id="newClient">{{newClient}}</span>
+                  <span>人</span>
+                </div>
+              </div>
+            </div>
+            <div class="target-block">
+              <div class="target-title">
+                <span>老顾客</span>
+              </div>
+              <div class="target-con">
+                <div class="target-detail">
+                  <span class='target-number' id="oldClient">{{oldClient}}</span>
+                  <span>人</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <no-data ng-hide="hasData||loadData"></no-data>
+        <loading ng-show="loadData"></loading>
+      </div>
+      <div class="main-con">
+        <div ng-class="{'blur': loadData||!hasData}">
+          <div class='main-title'>店铺转化能力</div>
+          <div class='target-wrap'>
+            <div class="target-block" id="avgDwell">
+              <div class="target-title">
+                <span>平均驻店时长</span>
+                <tip content="所探测到的顾客平均每次到店的停留时长"></tip>
+              </div>
+              <div class="target-con target-con-first">
+                <div class="target-detail">
+                  <span class='target-number'>{{dwelltime}}</span>
+                  <span>分钟</span>
+                </div>
+              </div>
+            </div>
+            <div class="target-block" id="deepC">
+              <div class="target-title">
+                <span>深访顾客</span>
+                <tip content="所探测到的进入店铺的客流中，驻店时长大于等于10分钟的人"></tip>
+              </div>
+              <div class="target-con">
+                <div class="target-detail">
+                  <span class='target-number' id="deepTimes">{{deepTimes}}</span>
+                  <span>人次</span>
+                </div>
+                <div class="target-supplement" id="deepNumber">
+                  <span>深访人数</span>
+                  <span id="deepNum">{{deepNum}}</span>
+                  <span>人</span>
+                </div>
+              </div>
+            </div>
+            <div class="target-block" id="deepR">
+              <div class="target-title">
+                <span>深访率</span>
+                <tip content="所探测到的驻店时长大于等于10分钟的客流占全部入店客流的比例"></tip>
+              </div>
+              <div class="target-con">
+                <div class="target-detail">
+                  <span class='target-number' id='deepRate'>{{deepRate}}</span>
+                  <span>%</span>
+                </div>
+              </div>
+            </div>
+            <div class="target-block" id="jumpC">
+              <div class="target-title">
+                <span>跳出顾客</span>
+                <tip content="所探测到的进入店铺的客流中，驻店时长小于等于5分钟的人"></tip>
+              </div>
+              <div class="target-con">
+                <div class="target-detail">
+                  <span class='target-number' id="jumpTimes">{{jumpTimes}}</span>
+                  <span>人次</span>
+                </div>
+                <div class="target-supplement">
+                  <span>跳出人数</span>
+                  <span id="jumpNum">{{jumpNum}}</span>
+                  <span>人</span>
+                </div>
+              </div>
+            </div>
+            <div class="target-block" id="jumpR">
+              <div class="target-title">
+                <span>跳出率</span>
+                <tip content="所探测到的驻店时长小于等于5分钟的客流占全部入店客流的比例"></tip>
+              </div>
+              <div class="target-con">
+                <div class="target-detail">
+                  <span class='target-number' id="jumpRate">{{jumpRate}}</span>
+                  <span>%</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <no-data ng-hide="hasData||loadData"></no-data>
+        <loading ng-show="loadData"></loading>
+      </div>
+    </div>
+  </div>
+</div>

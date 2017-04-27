@@ -1,0 +1,117 @@
+<app-header></app-header>
+<div class="main">
+  <div class="main_l">
+    <bar-manager></bar-manager>
+  </div>
+  <div class="main_r">
+    <div class="main_t">
+      <div class="title">{{title}}</div>
+    </div>
+    <div class="main_c">
+      <div class='main-con'>
+        <div class="employee-add-row">
+          <button type="button" class="add-btn" ng-click="showAdd=true">添加员工MAC</button>
+        </div>
+        <div class="table-wrap" style="min-height: 463px;">
+          <table class="employee-list">
+            <thead>
+              <tr>
+                <th>序号</th>
+                <th>MAC地址</th>
+                <th>员工姓名</th>
+                <th>备注</th>
+                <th>操作</th>
+              </tr>
+            </thead>
+            <tbody ng-hide="staffList.length == 0">
+              <tr ng-repeat="staff in staffList">
+                <td>{{(curPage - 1) * 10 + $index + 1}}</td>
+                <td>{{staff.mac}}</td>
+                <td>{{staff.name}}</td>
+                <td>{{staff.remark}}</td>
+                <td>
+                  <button type="button" class='btn edit_btn' ng-click="editStaff((curPage - 1) * 10 + $index + 1,staff.id,staff.mac,staff.name,staff.remark)">编辑</button>
+                  <button type="button" class='btn delete_btn' ng-click="showDeleteWrap(staff.id)">删除</button>
+                </td>
+              </tr>
+            </tbody>
+            <tbody ng-show="staffList.length == 0">
+              <td colspan="5">没有相关数据</td>
+            </tbody>
+          </table>
+        </div>
+        <div class="page_w">
+          <div class="page_and_btn">
+            <ul>
+              <li ng-class="{'hide':curPage==1}" ng-click="httpList(1)">首页</li>
+              <li ng-class="{'hide':curPage==1}" ng-click="httpList(curPage - 1)">上一页</li>
+              <li ng-repeat="page in pageList" ng-class="{'active':page==curPage}" ng-click="httpList(page)">{{page}}</li>
+              <li class="cant">共{{pageTotal}}页</li>
+              <li ng-class="{'hide':curPage==pageTotal}" ng-click="httpList(curPage + 1)">下一页</li>
+              <li ng-class="{'hide':curPage== pageTotal}" ng-click="httpList(pageTotal)">尾页</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<section class="alert_w alert_f_w" ng-show="showAdd">
+  <div class="alert_c add_mac_w">
+    <div class="title">添加员工MAC</div>
+    <ul>
+      <li>
+        <label for="addMac">MAC地址</label>
+        <input type="text" ng-model="addMac">
+      </li>
+      <li>
+        <label for="addName">员工姓名</label>
+        <input type="text" ng-model="addName">
+      </li>
+      <li>
+        <label for="addRemark">备注</label>
+        <input type="text" ng-model="addRemark">
+      </li>
+      <li class="btn_w">
+        <input type="button" value="取消" class="cancel_btn" ng-click="showAdd=false">
+        <input type="button" value="确定" ng-click="addStaff()">
+      </li>
+    </ul>
+  </div>
+</section>
+<section class="alert_w" ng-show="showEdit">
+  <div class="alert_c edit_mac_w">
+    <div class="title">编辑信息</div>
+    <ul>
+      <li>
+        <label for="number">序号：</label>
+        <input readonly type="text" id="number" ng-model="number">
+      </li>
+      <li>
+        <label for="editMac">MAC地址：</label>
+        <input type="text" id="editMac" ng-model="editMac">
+      </li>
+      <li>
+        <label for="editName">员工姓名：</label>
+        <input type="text" id="editName" ng-model="editName">
+      </li>
+      <li>
+        <label for="editRemark">备注：</label>
+        <input type="text" id="editRemark" ng-model="editRemark">
+      </li>
+      <li class="btn_w">
+        <input type="button" value="取消" ng-click="showEdit=false">
+        <input type="button" value="确定" ng-click="saveStaff()">
+      </li>
+    </ul>
+  </div>
+</section>
+<section class="alert_w" ng-show="showDelete">
+  <div class="alert_c delete_mac_w">
+    <div class="title">删除确认</div>
+    <div class="btn_w">
+      <input type="button" value="取消" class="btn cancel_btn" ng-click="showDelete=false">
+      <input type="button" value="确定" class="btn" ng-click="delStaff()">
+    </div>
+  </div>
+</section>

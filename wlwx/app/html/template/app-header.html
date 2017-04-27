@@ -1,0 +1,47 @@
+<header>
+  <div class="user_w">
+    <div class="user_l">
+      <div class="user_name">
+        <span>Hi，{{username}}</span>
+        <ul class="list">
+          <li>
+            <a href="javascript:;" ng-click="redirectToSetting()">设置</a>
+          </li>
+          <li>
+            <a href="javascript:;" ng-click="logout()">退出</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="p_w">
+      <a href="javascript:" ng-click="showMsg = true" class="msg-btn">
+        <span>反馈</span>
+      </a>
+      <a href="/help" target="_blank" class="help-btn">
+        <span>帮助</span>
+      </a>
+    </div>
+  </div>
+  <div class="navigate">
+    <div class="h_btn_w">
+      <div class="b_w1" ng-class="{'active': view == 'report'}">
+        <button ng-click="redirectToReport()">报表</button>
+      </div>
+      <div class="b_w2" ng-class="{'active': view == 'manager'}">
+        <button ng-click="redirectToSetting()">管理</button>
+      </div>
+    </div>
+  </div>
+  <div class="msg_w" ng-show="showMsg">
+    <div class="msg_inner">
+      <div class="msg_title">问题反馈</div>
+      <div class="msg_con">
+        <textarea class="msg_text" placeholder="描述问题，吐槽，或对产品的建议" ng-model="messageContent"></textarea>
+        <input type="text" class="msg_tel" placeholder="请填写您的邮箱" ng-model="messageEmail">
+        <div></div>
+        <a href="javascript:" ng-click="submitMessage()">提交</a>
+        <a href="javascript:" ng-click="showMsg = false">取消</a>
+      </div>
+    </div>
+  </div>
+</header>

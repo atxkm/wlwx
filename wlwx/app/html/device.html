@@ -1,0 +1,53 @@
+<app-header></app-header>
+<div class="main">
+  <div class="main_l">
+    <bar-manager></bar-manager>
+  </div>
+  <div class="main_r">
+    <div class="main_t">
+      <div class="title">{{title}}</div>
+    </div>
+    <div class="main_c">
+      <div class="main-con">
+        <table class='as-list'>
+          <thead>
+            <tr>
+              <th>序号</th>
+              <th>设备名称</th>
+              <th>设备MAC</th>
+              <th>所属店铺</th>
+              <th>状态</th>
+            </tr>
+          </thead>
+          <tbody ng-hide="deviceList.length == 0">
+            <tr ng-repeat="device in deviceList">
+              <td>{{(curPage - 1) * 10 + $index + 1}}</td>
+              <td>{{device.sbmc}}</td>
+              <td>{{device.mac}}</td>
+              <td>{{device.storeName}}</td>
+              <td>
+                <span class='ap-sign' ng-show="device.zt==0">AP</span>
+                <span class='ap-sign-bad' ng-hide="device.zt==0">AP</span>
+              </td>
+            </tr>
+          </tbody>
+          <tbody ng-show="deviceList.length == 0">
+            <td colspan="5">没有相关数据</td>
+          </tbody>
+        </table>
+        <div class="page_w">
+          <div class="page_and_btn">
+            <ul>
+              <li ng-class="{'hide':curPage==1}" ng-click="httpList(1)">首页</li>
+              <li ng-class="{'hide':curPage==1}" ng-click="httpList(curPage - 1)">上一页</li>
+              <li ng-repeat="page in pageList" ng-class="{'active':page==curPage}" ng-click="httpList(page)">{{page}}</li>
+              <li class="cant">共{{pageTotal}}页</li>
+              <li ng-class="{'hide':curPage==pageTotal}" ng-click="httpList(curPage + 1)">下一页</li>
+              <li ng-class="{'hide':curPage== pageTotal}" ng-click="httpList(pageTotal)">尾页</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

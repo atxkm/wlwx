@@ -1,0 +1,71 @@
+<app-header></app-header>
+<div class="main">
+  <div class="main_l">
+    <bar-manager></bar-manager>
+  </div>
+  <div class="main_r">
+    <div class="main_t">
+      <div class="title">{{title}}</div>
+    </div>
+    <div class="main_c">
+      <div class="main-con all-store-wrap">
+        <table class='as-list'>
+          <thead>
+            <tr>
+              <th>序号</th>
+              <th>店铺名称</th>
+              <th>店铺地址</th>
+              <th>设备数量</th>
+              <th style='width: 270px;'>操作</th>
+            </tr>
+          </thead>
+          <tbody ng-hide="storeList.length == 0">
+            <tr ng-repeat="store in storeList">
+              <td>{{(curPage - 1) * 10 + $index + 1}}</td>
+              <td>{{store.dpmc}}</td>
+              <td>{{store.address==''?'未填写':store.address}}</td>
+              <td>{{store.deviceCount}}</td>
+              <td>
+                <button type='button' class="store_edit_btn" ng-click="showAlert(store.id,store.dpmc,store.address)">编辑</button>
+              </td>
+            </tr>
+          </tbody>
+          <tbody ng-show="storeList.length == 0">
+            <td colspan="5">没有相关数据</td>
+          </tbody>
+        </table>
+        <div class="page_w">
+          <div class="page_and_btn">
+            <ul>
+              <li ng-class="{'hide':curPage==1}" ng-click="httpList(1)">首页</li>
+              <li ng-class="{'hide':curPage==1}" ng-click="httpList(curPage - 1)">上一页</li>
+              <li ng-repeat="page in pageList" ng-class="{'active':page==curPage}" ng-click="httpList(page)">{{page}}</li>
+              <li class="cant">共{{pageTotal}}页</li>
+              <li ng-class="{'hide':curPage==pageTotal}" ng-click="httpList(curPage + 1)">下一页</li>
+              <li ng-class="{'hide':curPage== pageTotal}" ng-click="httpList(pageTotal)">尾页</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<section class="alert_w" ng-show="showEditWrap">
+  <div class="alert_c edit_store_w">
+    <div class="title">编辑店铺信息</div>
+    <ul>
+      <li>
+        <label for="storeName">店铺名称</label>
+        <input type="text" id="storeName" ng-model="dpmc">
+      </li>
+      <li>
+        <label for="storeAddress">店铺地址</label>
+        <input type="text" id="storeAddress" ng-model="address">
+      </li>
+      <li class="btn_w">
+        <input type="button" value="取消" ng-click="showEditWrap=false">
+        <input type="button" value="确定" ng-click="updateStore()">
+      </li>
+    </ul>
+  </div>
+</section>

@@ -1,0 +1,23 @@
+<app-header></app-header>
+<div class="main">
+  <div class="main_l">
+    <bar-report></bar-report>
+  </div>
+  <div class="main_r">
+    <div class="main_t">
+      <title-one check-type="multiple"></title-one>
+    </div>
+    <div class="main_c">
+      <div class="main-con">
+        <div id="inChart" style="height: 300px;" ng-class="{'blur': loadNumData||!hasNumData}"></div>
+        <no-data ng-hide="hasNumData||loadNumData"></no-data>
+        <loading ng-show="loadNumData"></loading>
+      </div>
+      <div class="main-con">
+        <div id="inRateChart" style="height: 260px;" ng-class="{'blur': loadRateData||!hasRateData}"></div>
+        <no-data ng-hide="hasRateData||loadRateData"></no-data>
+        <loading ng-show="loadRateData"></loading>
+      </div>
+    </div>
+  </div>
+</div>

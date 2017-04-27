@@ -1,0 +1,23 @@
+<app-header></app-header>
+<div class="main">
+  <div class="main_l">
+    <bar-report></bar-report>
+  </div>
+  <div class="main_r">
+    <div class="main_t">
+      <title-one></title-one>
+    </div>
+    <div class="main_c">
+      <div class="main-con">
+        <div id="passChart" style="height: 300px;" ng-class="{'blur': loadPassData||!hasPassData}"></div>
+        <no-data ng-hide="hasPassData||loadPassData"></no-data>
+        <loading ng-show="loadPassData"></loading>
+      </div>
+      <div class="main-con">
+        <div id="allChart" style="height: 260px;" ng-class="{'blur': loadAllData||!hasAllData}"></div>
+        <no-data ng-hide="hasAllData||loadAllData"></no-data>
+        <loading ng-show="loadAllData"></loading>
+      </div>
+    </div>
+  </div>
+</div>

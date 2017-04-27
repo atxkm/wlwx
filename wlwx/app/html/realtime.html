@@ -1,0 +1,44 @@
+<app-header></app-header>
+<div class="main">
+  <div class="main_l">
+    <bar-report></bar-report>
+  </div>
+  <div class="main_r">
+    <div class="main_t">
+      <div class="title">{{title}}</div>
+    </div>
+    <div class="main_c">
+      <div class="main-con">
+        <div ng-class="{'blur':!hasInData||loadInData}">
+          <div class="inside-wrap">
+            <div class='inside-number' id='insideNumber'>
+              <span>{{inNum}}</span>
+            </div>
+            <div id="inNumChart" style="width: 200px; height: 260px;" class='chart'></div>
+          </div>
+          <div class="inside-run-chart">
+            <div id="inRunChart" style="height: 260px;"></div>
+          </div>
+        </div>
+        <no-data ng-hide="hasInData||loadInData"></no-data>
+        <loading ng-show="loadInData"></loading>
+      </div>
+      <div class="main-con">
+        <div ng-class="{'blur':!hasOutData||loadOutData}">
+          <div class="in-rate-wrap">
+            <div class='main-title'>入店率</div>
+            <div class='inside-rate'>{{insideRate}}</div>
+            <div class='main-title'>当前路过客流</div>
+            <div class="pass-number">{{inNum + outNum}}</div>
+          </div>
+          <div class="pass-run-chart">
+            <div class='main-title'>路过客流走势</div>
+            <div id="passRunChart" style="height: 260px;"></div>
+          </div>
+        </div>
+        <no-data ng-hide="hasOutData||loadOutData"></no-data>
+        <loading ng-show="loadOutData"></loading>
+      </div>
+    </div>
+  </div>
+</div>

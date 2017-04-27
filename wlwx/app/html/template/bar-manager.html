@@ -1,0 +1,30 @@
+<ul>
+  <!-- <li class="li_c">
+    <span class="bar5">帐号</span>
+    <div class="list">
+      <a href="account">
+        <em>帐号设置</em>
+      </a>
+      <a href="childAccount">
+        <em>子帐号管理</em>
+      </a>
+    </div>
+  </li> -->
+  <li class="li_t" style="border-bottom: 1px solid #ffffff;" ng-class="{'active': item == 'account'}">
+    <a href="/account" class="bar5">帐号</a>
+  </li>
+  <li class="li_c" ng-class="{'active': item == 'store' || item == 'filter'}">
+    <span class="bar6">店铺</span>
+    <div class="list">
+      <a href="/store" ng-class="{'active': item == 'store'}">
+        <em>店铺管理</em>
+      </a>
+      <a href="/filter" ng-class="{'active': item == 'filter'}">
+        <em>过滤名单</em>
+      </a>
+    </div>
+  </li>
+  <li class="li_t" ng-class="{'active': item == 'device'}">
+    <a href="/device" class="bar7">设备管理</a>
+  </li>
+</ul>

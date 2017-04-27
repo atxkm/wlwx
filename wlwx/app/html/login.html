@@ -1,0 +1,15 @@
+<div class="wrap">
+  <div class="bg" id="logo">
+    <img src="img/login_l.png" class="logo">
+  </div>
+  <img src="img/login_w.png" class="circle-word">
+  <form class="form" action="login" method="post" onsubmit="return false;">
+    <input type="text" autofocus="autofocus" class="email" name="loginname" placeholder="帐号" ng-model="email">
+    <input type="password" class="password" name="password" placeholder="密码" ng-model="password">
+    <div class="btn-wrap">
+      <div class="login-msg" ng-show="conNul">{{msg}}</div>
+      <input type="submit" class="login-btn" value="登录" ng-click="login()">
+      <!-- <a href="javascript:" class="forget-psw">忘记密码？</a> -->
+    </div>
+  </form>
+</div>

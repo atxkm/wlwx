@@ -1,0 +1,183 @@
+﻿ul {
+  margin: 0;
+  padding: 0;
+}
+li {
+  list-style: none;
+}
+.datepicker-al {
+  position: relative;
+}
+.calendar-al {
+  position: fixed;
+  z-index: 9;
+  width: 284px;
+  font-family: Microsoft Yahei;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.al-t {
+  height: 40px;
+  text-align: center;
+  line-height: 40px;
+  color: #000000;
+  font-size: 16px;
+}
+.al-btn {
+  position: relative;
+  background: #eeeeee;
+  box-shadow: 0 0 4px #000000;
+}
+.al-t-l {
+  float: left;
+  width: 42px;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.al-t-m {
+  margin: 0 45px;
+  /*background: #363636;*/
+  cursor: pointer;
+}
+.al-t-r {
+  float: right;
+  width: 42px;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.al-btn:hover {
+  background: #cccccc;
+}
+.al-btn:active {
+  top: 2px;
+  background: #dddddd;
+}
+.al-b {
+  overflow: hidden;
+  height: 274px;
+  border-left: 2px solid #cccccc;
+  border-right: 2px solid #cccccc;
+  border-bottom: 2px solid #cccccc;
+  background: #f6f6f6;
+  box-shadow: 2px 2px #dfdfdf;
+}
+.al-b table {
+  width: 100%;
+  text-align: center;
+}
+.al-d-t {
+  height: 30px;
+  line-height: 32px;
+  font-size: 14px;
+  color: #363636;
+  cursor: default;
+}
+.al-d-t li {
+  float: left;
+  width: 40px;
+  text-align: center;
+}
+.al-d-b {
+  border-spacing: 1px;
+  font-size: 14px;
+}
+.al-d-b td {
+  position: relative;
+  width: 38px;
+  border: 1px solid #dbdbdb;
+  background: #f6f6f6;
+  line-height: 35px;
+  cursor: default;
+}
+.al-d-b td.unable {
+  color: #acaeb1;
+}
+.al-d-b td.able {
+  color: #514949;
+  cursor: pointer;
+}
+.al-d-b td.able.active {
+  background: #6deeee;
+  color: #ffffff;
+}
+.al-d-b td.able:hover {
+  background: #c6c6c6;
+  color: #ffffff;
+}
+.al-d-b td.able:active {
+  background: #000000;
+  color: #ffffff;
+}
+.al-d-b .today {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 25px;
+}
+.al-month {
+  margin-top: 30px;
+  color: #000000;
+}
+.al-month td {
+  width: 25%;
+  border: 1px solid #dbdbdb;
+  line-height: 64px;
+  cursor: pointer;
+}
+.al-month td.active {
+  background: #6deeee;
+  color: #ffffff;
+}
+.al-month td:hover {
+  background: #c6c6c6;
+  color: #ffffff;
+}
+.al-month td:active {
+  background: #000000;
+}
+.al-year {
+  padding-top: 30px;
+  color: #000000;
+}
+.al-year td {
+  width: 25%;
+  border: 1px solid #dbdbdb;
+  line-height: 67px;
+  font-size: 24px;
+  cursor: pointer;
+}
+.al-year td.active {
+  background: #6deeee;
+  color: #ffffff;
+}
+.al-year td:hover {
+  background: #c6c6c6;
+  color: #ffffff;
+}
+.al-year td:active {
+  background: #c9e3ec;
+}
+.al-quarter {
+  padding-top: 7px;
+  color: #000000;
+}
+.al-quarter td {
+  width: 50%;
+  height: 125px;
+  border: 1px solid #dbdbdb;
+  font-size: 18px;
+}
+.al-quarter td:hover {
+  background: #c6c6c6;
+  color: #ffffff;
+}
+.al-quarter td.active {
+  color: #ffffff;
+  background: #c9e3ec;
+}

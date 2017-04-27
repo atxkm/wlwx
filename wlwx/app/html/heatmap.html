@@ -1,0 +1,21 @@
+<app-header></app-header>
+<div class="main">
+  <div class="main_l">
+    <bar-report></bar-report>
+  </div>
+  <div class="main_r">
+    <div class="main_t">
+      <title-heatmap></title-heatmap>
+    </div>
+    <div class="main_c">
+      <div class="main-con">
+        <div class="heatmap" ng-class="{'blur': loadData||!hasData}">
+          <img src="{{src}}" id="heatmapImg">
+          <div id="heatmap"></div>
+        </div>
+        <no-data ng-hide="hasData||loadData"></no-data>
+        <loading ng-show="loadData"></loading>
+      </div>
+    </div>
+  </div>
+</div>

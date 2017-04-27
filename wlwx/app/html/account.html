@@ -1,0 +1,74 @@
+<app-header></app-header>
+<div class="main">
+  <div class="main_l">
+    <bar-manager></bar-manager>
+  </div>
+  <div class="main_r">
+    <div class="main_t">
+      <div class="title">{{title}}</div>
+    </div>
+    <div class="main_c">
+      <ul class="main-con account-option-wrap">
+        <li>
+          <div>公司名称:</div>
+          <div>{{company}}</div>
+        </li>
+        <li>
+          <div>邮箱:</div>
+          <div>{{email}}</div>
+        </li>
+        <li>
+          <div>账号名称:</div>
+          <div class="can-edit" ng-hide="editName" ng-click="editName=true;usernameText=username">
+            {{username}}
+          </div>
+          <div class="edit-wrap" ng-show="editName">
+            <input type="text" ng-model="usernameText">
+            <a href="javascript:;" ng-click="editName=false">取消</a>
+            <a href="javascript:;" ng-click="saveAccount()">保存</a>
+          </div>
+        </li>
+        <li>
+          <div>联系电话:</div>
+          <div class="can-edit" ng-hide="editMobile" ng-click="editMobile=true;mobileText=mobile">
+            {{mobile}}
+          </div>
+          <div class="edit-wrap" ng-show="editMobile">
+            <input type="text" ng-model="mobileText">
+            <a href="javascript:;" ng-click="editMobile=false">取消</a>
+            <a href="javascript:;" ng-click="saveMobile()">保存</a>
+          </div>
+        </li>
+        <li>
+          <div>账号密码:</div>
+          <div>
+            <a href="javascript:;" ng-click="showAlert=true">更改密码</a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+<section class="alert_w" ng-show="showAlert">
+  <div class="alert_c ch_pwd_w">
+    <div class="title">更改密码</div>
+    <ul>
+      <li>
+        <label for="oldPwd">原密码：</label>
+        <input type="password" ng-model="oldPsw" id="oldPwd">
+      </li>
+      <li>
+        <label for="newPwd">新密码：</label>
+        <input type="password" ng-model="newPsw" id="newPwd">
+      </li>
+      <li>
+        <label for="rePsw">重复密码：</label>
+        <input type="password" ng-model="rePsw" id="rePsw">
+      </li>
+      <li class="btn_w">
+        <input type="button" value="取消" ng-click="showAlert=false;oldPsw=newPsw=rePsw=''">
+        <input type="button" value="确定" ng-click="changePsw()">
+      </li>
+    </ul>
+  </div>
+</section>

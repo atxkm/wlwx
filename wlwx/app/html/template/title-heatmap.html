@@ -1,0 +1,32 @@
+<div class="main_t">
+  <div class="title">区域热图
+    <tip2 content="客户主要集中停留在什么地方"></tip2>
+  </div>
+  <div class="check-wrap" ng-class="{'check-wrap-widen': checkType == 'multiple', 'check-wrap-hidden': checkType == 'multiple' && canSearch == false}">
+    <div class="check-type">
+      <span>{{checkType=='single'?'单日信息查看':'多天信息查看'}}</span>
+      <img src="img/arrow_d.png">
+      <div class="option-list">
+        <div class="line"></div>
+        <div class="option" ng-click="checkType='single';getData()">单日信息查看</div>
+        <div class="line"></div>
+        <div class="option" ng-click="checkType='multiple';getData()">多天信息查看</div>
+      </div>
+    </div>
+    <div class="single-date" ng-show="checkType == 'single'">
+      <div class="date-value-wrap" datepicker-al callback="getData">
+        <input readonly="readonly" datepicker-al-value date-format="Y年M月D日" ng-model="singleDate">
+      </div>
+    </div>
+    <div class="multiple-date" ng-show="checkType == 'multiple'">
+      <div class="date-value-wrap" datepicker-al>
+        <input readonly="readonly" datepicker-al-value date-format="Y年M月D日" ng-model="startDate">
+      </div>
+      <span>-</span>
+      <div class="date-value-wrap" datepicker-al>
+        <input readonly="readonly" datepicker-al-value date-format="Y年M月D日" ng-model="endDate">
+      </div>
+      <button ng-show="canSearch" ng-click="getData()">查询</button>
+    </div>
+  </div>
+</div>

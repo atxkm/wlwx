@@ -1,0 +1,50 @@
+<ul>
+  <li class="li_c" ng-class="{'active': item == 'overview' || item == 'realtime'}">
+    <span class="bar1">概览</span>
+    <div class="list">
+      <a href="/overview" ng-class="{'active': item == 'overview'}">
+        <em>店铺概览</em>
+      </a>
+      <a href="/realtime" ng-class="{'active': item == 'realtime'}">
+        <em>实时统计</em>
+      </a>
+    </div>
+  </li>
+  <li class="li_c" ng-class="{'active': item == 'enter-trend' || item == 'passenger-trend'}">
+    <span class="bar2">客流</span>
+    <div class="list">
+      <a href="/enter-trend" ng-class="{'active': item == 'enter-trend'}">
+        <em>入店趋势</em>
+      </a>
+      <a href="/passenger-trend" ng-class="{'active': item == 'passenger-trend'}">
+        <em>客流趋势</em>
+      </a>
+    </div>
+  </li>
+  <li class="li_c" ng-class="{'active': 'customer-type,dwelltime,visit-cycle,visit-times,liveness,phone-type'.indexOf(item) != -1}">
+    <span class="bar3">顾客</span>
+    <div class="list">
+      <a href="/customer-type" ng-class="{'active': item == 'customer-type'}">
+        <em>新老顾客</em>
+      </a>
+      <a href="/dwelltime" ng-class="{'active': item == 'dwelltime'}">
+        <em>驻店时长</em>
+      </a>
+      <a href="/visit-cycle" ng-class="{'active': item == 'visit-cycle'}">
+        <em>来访周期</em>
+      </a>
+      <a href="/visit-times" ng-class="{'active': item == 'visit-times'}">
+        <em>到访次数</em>
+      </a>
+      <a href="/liveness" ng-class="{'active': item == 'liveness'}">
+        <em>活跃度</em>
+      </a>
+      <a href="/phone-type" ng-class="{'active': item == 'phone-type'}">
+        <em>手机品牌</em>
+      </a>
+    </div>
+  </li>
+  <li class="li_t" ng-class="{'active': item == 'heatmap'}">
+    <a href="/heatmap" class="bar4">区域热度</a>
+  </li>
+</ul>
